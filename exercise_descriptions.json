@@ -1,0 +1,156 @@
+{
+    "Continuous Climbing (ARC Training)": {
+        "Objective": "Improve aerobic capacity by climbing continuously at a low intensity.",
+        "Climbing Details": {
+            "Duration": "20-40 minutes",
+            "Intensity": "Low, constant",
+            "Mode": "Routes or traversing on an empty bouldering wall.",
+            "Falls": "If you fall, get back on the wall quickly to maintain continuous climbing.",
+            "Cruxes": "Avoid cruxes or highly challenging moves. The focus is on endurance, not overcoming hard moves."
+        },
+        "Rest Details": "None. The goal is to keep climbing without resting.",
+        "Repetitions": "1 (This is a continuous exercise)",
+        "Intensity Rating": "This should feel relatively easy, around 4-5 out of 10."
+    },
+    "Moderate Intensity Climbing": {
+        "Objective": "Build basic endurance through sustained climbing at a moderate intensity.",
+        "Climbing Details": {
+            "Duration": "10 minutes",
+            "Intensity": "Moderate",
+            "Mode": "Climb routes or boulder problems that offer a steady challenge.",
+            "Falls": "If you fall, take a brief moment to shake out and then continue.",
+            "Cruxes": "It's okay to face cruxes, but they shouldn't stop your progress for long. Adjust your route choice if needed."
+        },
+        "Rest Details": "None. Try to climb the full duration.",
+        "Repetitions": "1",
+        "Intensity Rating": "Around 6 out of 10. You should feel worked, but not to exhaustion."
+    },
+    "Up-Down Climbing": {
+        "Objective": "Develop and maintain a steady aerobic pace while enhancing mental endurance and route reading on familiar terrain.",
+        "Climbing Details": {
+            "Duration": "15 minutes",
+            "Intensity": "Low to moderate",
+            "Mode": "Choose a boulder or route you're familiar with. Climb it upwards, then try to reverse the movements to climb downwards. Repeat for 15 minutes without getting off the wall.",
+            "Falls": "If you fall, take a short break, then continue where you left off.",
+            "Cruxes": "Opt for problems or routes with minimal cruxes to maintain a steady flow."
+        },
+        "Rest Details": "None during the exercise. Keep climbing up and down.",
+        "Repetitions": "1"
+    },
+    "Circuits": {
+        "Objective": "Enhance aerobic power by simulating long sequences commonly found outdoors.",
+        "Climbing Details": {
+            "Duration": "Duration depends on the circuit complexity.",
+            "Move Count": "30 moves",
+            "Intensity": "High",
+            "Mode": "Set a circuit that simulates the sequence and style of an outdoor climb. No resting holds allowed.",
+            "Falls": "If you fall, get back on immediately and continue."
+        },
+        "Rest Details": "Rest 1-2 times the duration of your climb.",
+        "Repetitions": "Varies. 8 reps for an intense session or 6 sets of 4 reps with 10-20min rests between for a high-volume session.",
+        "Intensity Rating": "Should feel hard by the last few reps, potentially leading to failure."
+    },
+    "On-the-Minute": {
+        "Objective": "Increase aerobic power by maintaining a consistent climb-to-rest ratio.",
+        "Climbing Details": {
+            "Duration": "Depends on the boulder problem but should fit within the 60-second timeframe.",
+            "Move Count": "6-8 moves",
+            "Intensity": "High",
+            "Mode": "Bouldering. Start a new climb every minute.",
+            "Falls": "Get back on immediately if you fall. The goal is to maintain the rhythm."
+        },
+        "Rest Details": "Rest for the remainder of the minute (usually 40 seconds if the climb takes 20 seconds).",
+        "Repetitions": "8 reps per set, adjust the number of sets based on desired volume."
+    },
+    "4x4s": {
+        "Objective": "Develop aerobic power through back-to-back high-intensity climbs.",
+        "Climbing Details": {
+            "Duration": "Depends on the boulder problems selected.",
+            "Move Count": "Varies. Use 4 different boulder problems.",
+            "Intensity": "High",
+            "Mode": "Bouldering. Climb 4 problems consecutively without rest.",
+            "Falls": "Get back on immediately."
+        },
+        "Rest Details": "Short rests between sets, typically 1-3 minutes.",
+        "Repetitions": "4 sets of the 4-problem sequence. Adjust based on desired volume."
+    },
+    "Long Boulders": {
+        "Objective": "Develop anaerobic capacity through intense, longer-duration climbs.",
+        "Climbing Details": {
+            "Duration": "30-50 seconds",
+            "Move Count": "12-15 moves",
+            "Intensity": "Very high. Should feel like 9 out of 10.",
+            "Mode": "Bouldering problems or circuits that push your limits.",
+            "Falls": "If you fall, note where you fell, rest, and try again, aiming to progress further.",
+            "Cruxes": "Expect cruxes. They will challenge your capacity. If you repeatedly fail at the same crux, consider an alternative or technique adjustment."
+        },
+        "Rest Details": "Rest for 2-4 times the duration of your climb.",
+        "Repetitions": "8-10 (can be split into sets)"
+    },
+    "Power Intervals": {
+        "Objective": "Boost anaerobic capacity with flashable maximal effort climbs and short rest.",
+        "Climbing Details": {
+            "Duration": "30-40 seconds",
+            "Intensity": "Maximal. Push yourself!",
+            "Mode": "Bouldering problems or sequences that are at or near your limit.",
+            "Falls": "Falling indicates you're pushing your limits. Rest briefly and try again, or adjust the problem's difficulty.",
+            "Cruxes": "This exercise is about pushing hard, so challenging moves are expected. Adjust technique or sequence as needed."
+        },
+        "Rest Details": "Rest for 1 minute between climbs.",
+        "Repetitions": "8-10"
+    },
+    "Climbing Bursts": {
+        "Objective": "Improve anaerobic capacity by executing short, intense bursts of climbing movements.",
+        "Climbing Details": {
+            "Duration": "20 seconds per burst",
+            "Move Count": "6-8 explosive moves",
+            "Intensity": "High; choose moves that require power and precision.",
+            "Mode": "Bouldering problems that emphasize dynamic and powerful movements."
+        },
+        "Rest Details": "Rest for 2-3 minutes between bursts.",
+        "Repetitions": "6-8 bursts"
+    },    
+    "Maximal Intensity Climbs": {
+        "Objective": "Develop anaerobic power through short, maximal effort climbs.",
+        "Climbing Details": {
+            "Duration": "10-15 seconds",
+            "Move Count": "3-5 moves",
+            "Intensity": "Maximal. Push your limits!",
+            "Mode": "Short bouldering problems or sequences that are slightly above your limit.",
+            "Falls": "Falling is common as you're pushing your boundaries. Take note of where and try to improve on the next attempt.",
+            "Cruxes": "Cruxes are expected. Experiment with different techniques to overcome them."
+        },
+        "Rest Details": "Rest for 10 minutes between climbs, ensuring full recovery.",
+        "Repetitions": "5-8"
+    },
+    "Dynamic Movements": {
+        "Objective": "Focus on power development through dynamic, explosive movements.",
+        "Climbing Details": {
+            "Duration": "5-10 seconds",
+            "Intensity": "Maximal. Emphasize explosive power.",
+            "Mode": "Bouldering problems or sequences emphasizing dynamic moves, jumps, or campusing.",
+            "Falls": "Falling is expected, especially when trying dynamic moves. Ensure safe landing zones.",
+            "Cruxes": "This is about power, so don't get bogged down on cruxes. If a move repeatedly stops you, adjust your approach or technique."
+        },
+        "Rest Details": "Rest for 2-3 minutes between climbs.",
+        "Repetitions": "6-8"
+    },
+    "Limit Bouldering": {
+        "Objective": "Push your boundaries by working on the hardest moves or sequences you can attempt.",
+        "Climbing Details": {
+            "Duration": "Varies, but focus on 1-3 very challenging moves.",
+            "Intensity": "Maximal. This is about pushing your absolute limits.",
+            "Mode": "Bouldering problems or sequences that you find extremely challenging, perhaps even currently impossible.",
+            "Falls": "Expected. The goal is to push boundaries and try moves that might feel out of reach.",
+            "Cruxes": "The entire sequence is essentially a crux."
+        },
+        "Rest Details": "Rest for 4-5 minutes between attempts to ensure full recovery.",
+        "Repetitions": "5-6 attempts"
+    }
+
+
+
+
+
+
+}
