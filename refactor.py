@@ -26,7 +26,7 @@ class Exercise:
             print(f"3. Time an actual rep (where applicable)")
             print(f"0. Go back to the previous menu")
             choice = input("Choose an option (1, 2, 3, or 0): ")
-            if choice == "1":
+            if choice == "1" or "":
                 continue
             elif choice == "2":
                 user_input = int(input(prompt))
