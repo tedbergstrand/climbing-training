@@ -24,7 +24,8 @@ class Exercise:
             print(f"1. Use the recommended value / time estimate")
             print(f"2. Input your own value / time estimate")
             print(f"3. Time an actual rep (where applicable)")
-            choice = input("Choose an option (1, 2, or 3): ")
+            print(f"0. Go back to the previous menu")
+            choice = input("Choose an option (1, 2, 3, or 0): ")
             if choice == "1":
                 continue
             elif choice == "2":
@@ -38,6 +39,9 @@ class Exercise:
                 print(f"Time recorded: {actual_time} seconds.")
                 setattr(self, param, actual_time)
                 self.user_timed = True  # set the flag to True if the user timed the exercise
+            elif choice == "0":
+                return
+
 
 
     
@@ -115,7 +119,7 @@ class ExerciseManager:
     def add_exercise(self, exercise):
         self.exercises.append(exercise)
         
-    ENERGY_SYSTEM_ORDER = ["aerobic capacity", "anaerobic capacity", "aerobic power", "anaerobic power"]
+    ENERGY_SYSTEM_ORDER = ["Aerobic Capacity", "Anaerobic Capacity", "Aerobic Power", "Anaerobic Power"]
 
     def list_energy_systems_by_type(self, exercise_type):
         energy_systems = set([e.energy_system for e in self.exercises if e.exercise_type == exercise_type])
@@ -136,9 +140,13 @@ class ExerciseManager:
     def run_exercise_by_type_and_energy(self, exercise_type, user_grade):
         if exercise_type == "on-the-wall":
             energy_systems = self.list_energy_systems_by_type(exercise_type)
-            choice = int(input("Choose an energy system by number: "))
-            if 1 <= choice <= len(energy_systems):
-                selected_energy_system = energy_systems[choice-1]
+            choice = input("Choose an energy system by number (or 0 to go back): ")
+            
+            if choice == "0":
+                return
+            
+            if 1 <= int(choice) <= len(energy_systems):
+                selected_energy_system = energy_systems[int(choice)-1]
             else:
                 print("Invalid choice. Please select a valid energy system number.")
                 return
@@ -146,15 +154,20 @@ class ExerciseManager:
             selected_energy_system = None  # For other exercise types, energy system is not relevant
 
         self.list_exercises_by_type_and_energy(exercise_type, selected_energy_system)
-        exercise_choice = int(input("Choose an exercise by number: "))
+        exercise_choice = input("Choose an exercise by number (or 0 to go back): ")
+        
+        if exercise_choice == "0":
+            return
+
         exercises_of_type_and_energy = [e for e in self.exercises if e.exercise_type == exercise_type and (selected_energy_system is None or e.energy_system == selected_energy_system)]
         
-        if 1 <= exercise_choice <= len(exercises_of_type_and_energy):
-            recommended = recommended_grade(user_grade, exercises_of_type_and_energy[exercise_choice-1].name)
+        if 1 <= int(exercise_choice) <= len(exercises_of_type_and_energy):
+            recommended = recommended_grade(user_grade, exercises_of_type_and_energy[int(exercise_choice)-1].name)
             print(f"Recommended bouldering grade for this exercise: V{recommended}")
-            exercises_of_type_and_energy[exercise_choice-1].run()
+            exercises_of_type_and_energy[int(exercise_choice)-1].run()
         else:
             print("Invalid choice. Please select a valid exercise number.")
+
 
 def timer_with_beep(duration, message):
     for i in range(duration, 0, -1):
@@ -210,7 +223,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Fingerboard Aerobic Repeaters",
         exercise_type="hangboard",
-        energy_system="aerobic capacity",
+        energy_system="Aerobic Capacity",
         sets=8,
         repetitions=1,
         hang_time=30,
@@ -223,7 +236,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Fingerboard Repeaters",
         exercise_type="hangboard",
-        energy_system="anaerobic capacity",
+        energy_system="Anaerobic Capacity",
         sets=5,
         repetitions=6,
         hang_time=7,
@@ -236,7 +249,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Fingerboard Capacity Max Hangs",
         exercise_type="hangboard",
-        energy_system="anaerobic capacity",
+        energy_system="Anaerobic Capacity",
         sets=5,
         repetitions=1,
         hang_time=20,
@@ -249,7 +262,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Fingerboard Max Hangs",
         exercise_type="hangboard",
-        energy_system="anaerobic power",
+        energy_system="Anaerobic Power",
         sets=5,
         repetitions=1,
         hang_time=10,
@@ -262,15 +275,15 @@ def main():
     manager.add_exercise(Exercise(
         name="On-The-Minute Climbs",
         exercise_type="on-the-wall",
-        energy_system="aerobic power",
-        sets=8,
-        repetitions=1,
+        energy_system="Aerobic Power",
+        sets=1,
+        repetitions=8,
         hang_time=60,
         short_rest=0,
         long_rest=0,
         message="Complete the boulder and rest until the next beep",
         input_prompts={
-            'sets': 'How many reps would you like to do? '
+            'repetitions': 'How many reps would you like to do? '
         }
     ))
 
@@ -278,7 +291,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Up-Down Climbing",
         exercise_type="on-the-wall",
-        energy_system="aerobic capacity",
+        energy_system="Aerobic Capacity",
         sets=1,
         repetitions=1,
         hang_time=15*60,
@@ -294,7 +307,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Climbing Bursts",
         exercise_type="on-the-wall",
-        energy_system="anaerobic capacity",
+        energy_system="Anaerobic Capacity",
         sets=6,
         repetitions=1,
         hang_time=20,
@@ -313,7 +326,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Limit Bouldering",
         exercise_type="on-the-wall",
-        energy_system="anaerobic power",
+        energy_system="Anaerobic Power",
         sets=5,
         repetitions=1,
         hang_time=0,  # This will be overridden by user input
@@ -329,7 +342,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Maximal Intensity Climbs",
         exercise_type="on-the-wall",
-        energy_system="anaerobic power",
+        energy_system="Anaerobic Power",
         sets=6,
         repetitions=1,
         hang_time=15,  # This is an average between 10-15 seconds
@@ -344,7 +357,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Dynamic Movements",
         exercise_type="on-the-wall",
-        energy_system="anaerobic power",
+        energy_system="Anaerobic Power",
         sets=6,
         repetitions=1,
         hang_time=10,  # This is an average between 5-10 seconds
@@ -362,7 +375,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Continuous Climbing (ARC Training)",
         exercise_type="on-the-wall",
-        energy_system="aerobic capacity",
+        energy_system="Aerobic Capacity",
         sets=3,
         repetitions=1,
         hang_time=20*60,  # Placeholder for 20 minutes. Replace with user input.
@@ -380,7 +393,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Moderate Intensity Climbing",
         exercise_type="on-the-wall",
-        energy_system="aerobic capacity",
+        energy_system="Aerobic Capacity",
         sets=1,
         repetitions=1,
         hang_time=10*60,  # Placeholder for 10 minutes. Replace with user input.
@@ -396,7 +409,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Circuits",
         exercise_type="on-the-wall",
-        energy_system="aerobic power",
+        energy_system="Aerobic Power",
         sets=3,  # Placeholder for 3 sets. Replace with user input.
         repetitions=1,
         hang_time=90,  # This is a placeholder. Replace with `get_climb_duration()`
@@ -416,7 +429,7 @@ def main():
     manager.add_exercise(Exercise(
         name="4x4s",
         exercise_type="on-the-wall",
-        energy_system="anaerobic capacity",
+        energy_system="Anaerobic Capacity",
         sets=4,  # Always 4 rounds for 4x4s
         repetitions=1,  # 1 rep is all 4 boulders
         hang_time=110,  # This is a placeholder. Replace with `get_climb_duration()`
@@ -436,7 +449,7 @@ def main():
     manager.add_exercise(Exercise(
         name="Long Boulders",
         exercise_type="on-the-wall",
-        energy_system="anaerobic capacity",
+        energy_system="Anaerobic Capacity",
         sets=1,  # Placeholder for 8 sets. Replace with user input.
         repetitions=8,
         hang_time=30,  # This is a placeholder. Replace with `get_climb_duration()`
@@ -453,13 +466,83 @@ def main():
     manager.add_exercise(Exercise(
         name="Power Intervals",
         exercise_type="on-the-wall",
-        energy_system="anaerobic capacity",
+        energy_system="Anaerobic Capacity",
         sets=8,  # Placeholder for 8 sets. Replace with user input.
         repetitions=1,
         hang_time=35,  # Climb duration of 35 seconds
         short_rest=0,
         long_rest=60,  # Rest for 1 minute
         message="Climb the boulder problem"
+    ))
+
+    ##Traditional Exercises
+
+        # Tabata
+    manager.add_exercise(Exercise(
+        name="Tabata",
+        exercise_type="traditional",
+        energy_system="Anaerobic Capacity",
+        sets=8,
+        repetitions=1,
+        hang_time=20,
+        short_rest=10,
+        long_rest=0,
+        message="Perform at high intensity!"
+    ))
+
+    # Standard HIIT
+    manager.add_exercise(Exercise(
+        name="Standard HIIT",
+        exercise_type="traditional",
+        energy_system="Anaerobic Power",
+        sets=8,
+        repetitions=1,
+        hang_time=30,
+        short_rest=30,
+        long_rest=0,
+        message="Perform at high intensity!"
+    ))
+
+    # EMOM
+    manager.add_exercise(Exercise(
+        name="EMOM",
+        exercise_type="traditional",
+        energy_system="Aerobic Power",
+        sets=1,  # 10 minutes as an example
+        repetitions=0,
+        hang_time=60,  # Full minute
+        short_rest=0,
+        long_rest=0,
+        message="Complete the exercise at the start of the minute and rest until the next beep",
+        input_prompts={
+            'reps': 'How many reps would you like to do? '
+        }
+    ))
+
+    # AMRAP (10 minutes in this example)
+    manager.add_exercise(Exercise(
+        name="10-min AMRAP",
+        exercise_type="traditional",
+        energy_system="Aerobic Capacity",
+        sets=1,
+        repetitions=1,
+        hang_time=10*60,
+        short_rest=0,
+        long_rest=0,
+        message="Perform as many rounds as possible in 10 minutes!"
+    ))
+
+        # Ted's Intervals
+    manager.add_exercise(Exercise(
+        name="Ted's Intervals",
+        exercise_type="traditional",
+        energy_system="Aerobic Power",
+        sets=4,
+        repetitions=4,
+        hang_time=20,
+        short_rest=0,
+        long_rest=0,
+        message="Aim for quality over quanitity"
     ))
 
 
@@ -469,16 +552,16 @@ def main():
 
     while True:
         print("\nExercise Categories:")
-        print("1. Hangboard")
-        print("2. On-The-Wall")
+        print("1. On-The-Wall")
+        print("2. Hangboard")
         print("3. Traditional")
         print("4. Exit")
         category_choice = input("Choose a category: ")
 
         if category_choice == "1":
-            manager.run_exercise_by_type_and_energy("hangboard", user_grade)
-        elif category_choice == "2":
             manager.run_exercise_by_type_and_energy("on-the-wall", user_grade)
+        elif category_choice == "2":
+            manager.run_exercise_by_type_and_energy("hangboard", user_grade)
         elif category_choice == "3":
             manager.run_exercise_by_type_and_energy("traditional", user_grade)
         elif category_choice == "4":
